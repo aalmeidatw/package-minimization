@@ -22,19 +22,65 @@ Also, the following distribution centers have the products available:
 
 The result would be two shipments, one package from Brazil with the keyboards and another package from Chile with the monitors.
 
+Multiple products sent by the same distribution center will be package together, so it is considered just one package.
+
 ## Problem
 
 The purpose of this problem is to fulfill the order with the minimum possible number of packages. In other words, the result should be the best combination of distribution centers that have the products available in the required quantities.
 
 *Note: in case of a tie between two distribution centers, both responses are acceptable.*
 
-The input is separated by two parts, the first one is the list of distribution centers and the products available in each one of them. The second part is the order that need to be fulfilled using the loaded availability from the first part. 
+The input is separated by two parts:
 
-The output is the number of packages followed by the list of distribution centers that will fulfill the order with the product and quantity		
+1. List of distribution centers and the products available in each one of them.
+2. List of products that the order contains and needs to be fulfilled.
 
-### Test Example
+Format:
 
-#### Input
+    [Country1] [Product1] [Quantity Available]
+    ...
+    [CountryN] [ProductN] [Quantity Available]
+    [Product1] [Quantity Needed]
+    ...
+    [ProductN] [Quantity Needed]
+
+The output is the number of packages followed by the list of distribution centers that will fulfill the order with the product and quantity	
+
+### Test Examples
+
+#### Test Case #1
+
+##### Input
+
+    Brazil Keyboard 2
+    Brazil Mouse 1
+    Argentina Mouse 2
+    Keyboard 2
+
+##### Output
+
+    1
+    Brazil Keyboard 2
+
+#### Test Case #2
+
+##### Input
+
+    Brazil Keyboard 2
+    Brazil Mouse 1
+    Argentina Mouse 2
+    Keyboard 2
+    Mouse 1
+
+##### Output
+
+    1
+    Brazil Keyboard 2
+    Brazil Mouse 1
+
+#### Test Case #3
+
+##### Input
 
     Brazil Keyboard 2
     Brazil Mouse 1
@@ -47,14 +93,10 @@ The output is the number of packages followed by the list of distribution center
     Mouse 1
     Monitor 2
 
-Basically, in this example, the last three lines represent the order because they don't have any distribution center associated to them.
-
-#### Output
+##### Output
 	2
     Brazil Keyboard 2
     Brazil Mouse 1
     Brazil Monitor 1
     Chile  Keyboard 1
     Chile  Monitor 1
-
-Even though the output has multiple lines, there are just two packages, one from Brazil and another one from Chile.
